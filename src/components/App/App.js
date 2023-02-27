@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Section from './components/Section';
-import FeedbackOptions from './components/FeedbackOptions';
-import Statistics from './components/Statistics';
-import Notification from './components/Notification/Notification';
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
+import Notification from 'components/Notification/Notification';
+import Section from 'components/Section/Section';
+import Statistics from 'components/Statistics/Statistics';
+import { Component } from 'react';
 
-class App extends Component {
+export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -12,19 +12,20 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    return Object.values(this.state).reduce((value, acc) => acc + value, 0);
+    return Object.values(this.state).reduce(
+      (acc, feedback) => acc + feedback,
+      0,
+    );
   };
 
   countPositiveFeedbackPercentage = () => {
-    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100) || 0;
   };
 
   handleClick = option => {
-    this.setState(prevState => {
-      return {
-        [option]: prevState[option] + 1,
-      };
-    });
+    this.setState(prevState => ({
+      [option]: prevState[option] + 1,
+    }));
   };
 
   render() {
@@ -34,7 +35,7 @@ class App extends Component {
     return (
       <>
         <h1 hidden>Feedback</h1>
-        <Section title="Please, leave feedback">
+        <Section title="Please leave feedback">
           <FeedbackOptions
             options={options}
             onLeaveFeedback={this.handleClick}
