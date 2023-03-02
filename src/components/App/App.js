@@ -1,9 +1,6 @@
 import { Component } from 'react';
 
-import Notification from 'components/Notification/Notification';
-import Section from 'components/Section/Section';
-import Statistics from 'components/Statistics/Statistics';
-import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
+import { FeedbackOptions, Notification, Section, Statistics } from 'components';
 import { Container } from './App.styled';
 
 export class App extends Component {
