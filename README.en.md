@@ -1,7 +1,7 @@
 **Read in other languages: [Russian](README.md), [Ukrainian](README.ua.md),
 [English](README.en.md).**
 
-# Components and collections. Styling.
+# Events and state.
 
 - The repository `react-feedback` is created.
 - The components of all tasks are rendered on one page, inside a common
