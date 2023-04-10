@@ -16,12 +16,12 @@ refresh).
 The state of the app must necessarily be of the following form, no new
 properties cannot be added.
 
-```
+```js
 state = {
   good: 0,
   neutral: 0,
-  bad: 0
-}
+  bad: 0,
+};
 ```
 
 The interface might look like this.

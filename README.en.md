@@ -7,8 +7,7 @@
 - The components of all tasks are rendered on one page, inside a common
   container - the root component `<App>`.
 - The repository header has a link to the live page on `GitHub pages`.
-- When visiting the live page (GitHub pages), there are no errors or warnings in
-  the console.
+- When running the code, there are no errors or warnings in the console.
 - There is a separate folder for each component with a React component file and
   a styles.
 - There are `propTypes` and, where appropriate, `defaultProps` described for the
