@@ -4,8 +4,8 @@
 # Events and state.
 
 - The repository `react-feedback` is created.
-- The components of all tasks are rendered on one page, inside a common
-  container - the root component `<App>`.
+- The components are rendered on the same page, inside a common container - the
+  `<App>` root component.
 - The repository header has a link to the live page on `GitHub pages`.
 - When running the code, there are no errors or warnings in the console.
 - There is a separate folder for each component with a React component file and
