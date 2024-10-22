@@ -18,7 +18,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Aliases with default import */
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "constants/*": ["./src/constants/*"],
+      "helpers/*": ["./src/helpers/*"]
+    }
   },
   "include": ["src"]
 }
