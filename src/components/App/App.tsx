@@ -1,8 +1,10 @@
 import { Component } from 'react';
 
-import { Section } from 'components/Section/Section';
-
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
+import { Notification } from 'components/Notification/Notification';
+import { Section } from 'components/Section/Section';
+import { Statistics } from 'components/Statistics/Statistics';
+
 import { Container } from './App.styled';
 
 export interface AppState {
@@ -32,7 +34,7 @@ export class App extends Component<object, AppState> {
   };
 
   render() {
-    // const { good, neutral, bad } = this.state;
+    const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state) as (keyof AppState)[];
 
     return (
@@ -44,7 +46,19 @@ export class App extends Component<object, AppState> {
             onLeaveFeedback={this.handleClick}
           />
         </Section>
-        <Section title="Statistics">Feedback Statistics</Section>
+        <Section title="Statistics">
+          {this.countTotalFeedback() > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification message="No feedback given...yet ;-)" />
+          )}
+        </Section>
       </Container>
     );
   }
