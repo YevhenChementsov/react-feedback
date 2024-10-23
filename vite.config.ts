@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/react-components/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/react-feedback/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
