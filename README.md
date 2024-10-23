@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+**Читать на других языках: [Українська](./docs/README.ua.md),
+[English](./docs/README.en.md).**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## События и состояние.
 
-Currently, two official plugins are available:
+_В этом разделе курса я изучу, как управлять событиями и состоянием в приложении
+с использованием классовых компонентов в React, а также типизировать классовый
+компонент с помощью Typescript. Моя задача - создать приложение для сбора
+статистики. Будет всего три варианта обратной связи: хорошо, нейтрально и
+плохо._
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+<details>
+<summary>Превью виджета отзывов</summary>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Превью виджета отзывов](./docs/mockup/preview.gif)
 
-- Configure the top-level `parserOptions` property like this:
+</details>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+#### В моем проекте виджета отзывов будет реализовано следующее:
+
+1. **Состояние приложения**: Я создам класс компонент `<App>`, который будет
+   хранить состояние приложения в виде объекта. Состояние будет содержать
+   количество собранных отзывов в трех категориях: хорошо, нейтрально и плохо.
+   Начальное состояние будет выглядеть следующим образом:
+
+```ts
+state = {
+  good: 0,
+  neutral: 0,
+  bad: 0,
+};
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+<details>
+<summary><b><em>Интерфейс может выглядеть так:</em></b></summary>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+![Пример вида интерфейса](./docs/mockup/step-1.png)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+</details>
+<br>
+
+2. **Обработка событий**: Для каждого варианта обратной связи (хорошо,
+   нейтрально, плохо) я добавлю обработчик событий, который будет обновлять
+   состояние при нажатии на соответствующую кнопку. Это позволит пользователю
+   взаимодействовать с приложением, и состояние будет изменяться в зависимости
+   от отзывов.
+
+3. **Методы для вычислений**: Я реализую вспомогательные методы для подсчета:
+
+   - `countTotalFeedback()` — возвращает общее количество собранных отзывов,
+     вычисляемое на основе состояния.
+   - `countPositiveFeedbackPercentage()` — вычисляет процент положительных
+     отзывов на основе данных в состоянии.
+
+<details>
+<summary><b><em>Интерфейс может выглядеть так:</em></b></summary>
+
+![Пример вида интерфейса](./docs/mockup/step-2.png)
+
+</details>
+<br>
+
+4. **Динамическое обновление интерфейса**: На основе текущего состояния и
+   обработанных событий, я буду динамически обновлять интерфейс приложения.
+   Например, статистика будет отображаться только после того, как будут собраны
+   хотя бы один отзыв, а в случае отсутствия отзывов будет выводиться сообщение
+   о том, что статистика недоступна.
+
+Используя классовые компоненты, я смогу управлять состоянием и событиями, что
+поможет мне глубже понять принципы работы React и взаимодействия компонентов.

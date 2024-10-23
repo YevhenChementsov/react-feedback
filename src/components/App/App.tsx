@@ -13,7 +13,7 @@ export interface AppState {
   bad: number;
 }
 
-export class App extends Component<object, AppState> {
+export class App extends Component<Record<string, never>, AppState> {
   state = {
     good: 0,
     neutral: 0,
