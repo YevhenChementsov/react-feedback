@@ -23,8 +23,7 @@
     /* Aliases with default import */
     "paths": {
       "components/*": ["./src/components/*"],
-      "constants/*": ["./src/constants/*"],
-      "helpers/*": ["./src/helpers/*"]
+      "constants/*": ["./src/constants/*"]
     }
   },
   "include": ["src"]
