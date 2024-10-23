@@ -2,9 +2,10 @@ import { Component } from 'react';
 
 import { Section } from 'components/Section/Section';
 
+import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Container } from './App.styled';
 
-interface AppState {
+export interface AppState {
   good: number;
   neutral: number;
   bad: number;
@@ -31,12 +32,19 @@ export class App extends Component<object, AppState> {
   };
 
   render() {
+    // const { good, neutral, bad } = this.state;
+    const options = Object.keys(this.state) as (keyof AppState)[];
+
     return (
       <Container>
         <h1 hidden>Feedback</h1>
-        <Section title="Please leave feedback">Feedback Options</Section>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.handleClick}
+          />
+        </Section>
         <Section title="Statistics">Feedback Statistics</Section>
-        This is App component
       </Container>
     );
   }
